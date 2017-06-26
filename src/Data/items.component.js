@@ -1,5 +1,10 @@
 (function () {
 
 	angular.module('MenuApp')
-		.component('items', items);
+		.component('items', {
+			templateUrl: 'src/Data/Templates/items.template.html',
+			bindings: {
+				items: '<'
+			}
+		});
 })();
