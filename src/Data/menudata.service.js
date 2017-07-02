@@ -16,6 +16,7 @@
 				})
 			.then(function (result) {
 				categories.push(result.name);
+				console.log(result.name);
 				return categories;
 			})
 			.catch(function (error) {

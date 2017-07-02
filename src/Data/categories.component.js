@@ -1,10 +1,11 @@
 (function () {
 
 	angular.module('MenuApp')
-		.component('categories', categories);
+		.component('categories', {
+			templateUrl: 'src/Data/Templates/categoriesItems.template.html',
+			bindings: {
+				categories: '<'
+			}
+		})
 
-	categories.$inject = [];
-	function categories () {
-		
-	}
 })();
