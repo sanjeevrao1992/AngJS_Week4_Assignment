@@ -16,19 +16,30 @@
 					templateUrl: 'src/Data/Templates/home.html'
 				})
 				.state('categories', {
-					url: '/category', 
+					url: '/categories', 
 					templateUrl: 'src/Data/Templates/categories.template.html',
-					controller: 'categoriesController as ctrl',
+					controller: 'CategoriesController as ctrl',
 					resolve: {
-						categories : ['MenuDataService', function(MenuDataService) {
+						categoriesItems: ['MenuDataService', function(MenuDataService) {
+							console.log(this);
 							return MenuDataService.getAllCategories();
 						}]
 					}
 				})
-				.state('items', {
-					url: '/items',
+				.state('itemDetail', {
+					url: '/items/{shortName}',
 					templateUrl: 'src/Data/Templates/items.template.html',
-					controller: 'itemsController as ctrl'
+					controller: 'itemsController as ctrl',
+					resolve : {
+						item : ['$stateParams', 'MenuDataService', 
+							function ($stateParams, MenuDataService) {
+								return MenuDataService.getItemsForCategory($stateParams.shortName);
+									// .then(function (shortName) {
+									// 	return items[$stateParams.shortName];
+									// });
+							}
+						]
+					}
 				});
 		}
 })();

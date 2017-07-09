@@ -17,7 +17,36 @@ body {
 li[ui-sref]:hover {
   display: inline-block;
   cursor: pointer;
-  border: solid black 1px;
+  /*border: solid black 1px;*/
   padding-left: 5px;
   padding-right: 5px;
+  font-weight: bold;
+}
+
+.navigation {
+  color:black;
+  font-size: 18px;
+}
+
+.navigation:hover {
+  cursor: pointer;
+  color:red;
+  font-size: 20px;
+}
+
+.itemList:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.mainLink {
+  padding-left: 10px;
+}
+
+.mainLink:hover {
+  cursor: pointer;
+  fill: red;
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
 }
